@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ListenAndGo</string>
+
+    <string name="category_mostPopular">Most popular</string>
+    <string name="category_mostPopular_pop">Pop</string>
+    <string name="category_mostPopular_rock">Rock</string>
+    <string name="category_mostPopular_blues">Blues</string>
+    <string name="category_mostPopular_metal">Metal</string>
+    <string name="category_moods">Moods</string>
+    <string name="category_moods_happy">Happy</string>
+    <string name="category_moods_party">Party</string>
+    <string name="category_moods_blue">Blue</string>
+    <string name="category_moods_romantic">Romantic</string>
+    <string name="category_soundtracks">Soundtracks</string>
+    <string name="category_myPlaylists">My Playlists</string>
+
+    <string name="text_description">Page description</string>
+    <string name="text_description_mainA">The user can choose from the upper menu, or from the categories. Categories would open a new screen with list of songs that belong to that category. POP category works.</string>
+</resources>
