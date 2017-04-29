@@ -9,19 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="@string/menu_home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".FavouritesActivity" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".PlayingActivity" />
-        <activity android:name=".ShoppingActivity" />
-        <activity android:name=".CategoryPopActivity"></activity>
+        <activity android:name=".SearchActivity"
+            android:label="@string/menu_search"/>
+        <activity android:name=".FavouritesActivity"
+            android:label="@string/menu_favourites"/>
+        <activity android:name=".ChatActivity"
+            android:label="@string/menu_chat"/>
+        <activity android:name=".PlayingActivity"
+            android:label="@string/listenAndGo"/>
+        <activity android:name=".ShoppingActivity"
+            android:label="@string/menu_shopping"/>
+        <activity android:name=".CategoryPopActivity"
+            android:label="@string/category_mostPopular_pop"></activity>
     </application>
 
 </manifest>

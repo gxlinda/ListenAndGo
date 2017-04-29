@@ -3,8 +3,9 @@ package hu.gearxpert.listenandgo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ImageView;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class ShoppingActivity extends AppCompatActivity {
 
@@ -13,43 +14,69 @@ public class ShoppingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping);
 
-        ImageView home = (ImageView) findViewById(R.id.home);
-        ImageView search = (ImageView) findViewById(R.id.search);
-        ImageView favourites = (ImageView) findViewById(R.id.favourites);
-        ImageView chat = (ImageView) findViewById(R.id.chat);
-        //ImageView shopping = (ImageView) findViewById(R.id.shopping);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+    }
 
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent homeIntent = new Intent(ShoppingActivity.this, MainActivity.class);
-                startActivity(homeIntent);
-            }
-        });
+    /**
+     * On selecting toolbar icons
+     * */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Take appropriate action for each action item click
+        switch (item.getItemId()) {
+            case R.id.home:
+                homeActivity();
+                return true;
+            case R.id.search:
+                searchActivity();
+                return true;
+            case R.id.favourites:
+                favouritesActivity();
+                return true;
+            case R.id.chat:
+                chatActivity();
+                return true;
+            case R.id.shopping:
+                shoppingActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent searchIntent = new Intent(ShoppingActivity.this, SearchActivity.class);
-                startActivity(searchIntent);
-            }
-        });
+    /**
+     * Launching new activity from menu
+     * */
+    private void homeActivity() {
+        Intent i = new Intent(ShoppingActivity.this, MainActivity.class);
+        startActivity(i);
+    }
 
-        favourites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent favouritesIntent = new Intent(ShoppingActivity.this, FavouritesActivity.class);
-                startActivity(favouritesIntent);
-            }
-        });
+    private void searchActivity() {
+        Intent i = new Intent(ShoppingActivity.this, SearchActivity.class);
+        startActivity(i);
+    }
 
-        chat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent chatIntent = new Intent(ShoppingActivity.this, ChatActivity.class);
-                startActivity(chatIntent);
-            }
-        });
+    private void favouritesActivity() {
+        Intent i = new Intent(ShoppingActivity.this, FavouritesActivity.class);
+        startActivity(i);
+    }
 
+    private void chatActivity() {
+        Intent i = new Intent(ShoppingActivity.this, ChatActivity.class);
+        startActivity(i);
+    }
+
+    private void shoppingActivity() {
+        Intent i = new Intent(ShoppingActivity.this, ShoppingActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }

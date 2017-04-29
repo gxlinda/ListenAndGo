@@ -3,10 +3,12 @@ package hu.gearxpert.listenandgo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class CategoryPopActivity extends AppCompatActivity {
 
@@ -15,58 +17,141 @@ public class CategoryPopActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_pop);
 
-        ImageView home = (ImageView) findViewById(R.id.home);
-        ImageView search = (ImageView) findViewById(R.id.search);
-        ImageView favourites = (ImageView) findViewById(R.id.favourites);
-        ImageView chat = (ImageView) findViewById(R.id.chat);
-        ImageView shopping = (ImageView) findViewById(R.id.shopping);
-        final TextView description = (TextView) findViewById(R.id.description);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
 
-        home.setOnClickListener(new View.OnClickListener() {
+        Button playAll = (Button) findViewById(R.id.play_all);
+        playAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent homeIntent = new Intent(CategoryPopActivity.this, MainActivity.class);
-                startActivity(homeIntent);
+                Intent playAllIntent = new Intent(CategoryPopActivity.this, PlayingActivity.class);
+                startActivity(playAllIntent);
             }
         });
 
-        search.setOnClickListener(new View.OnClickListener() {
+        Button shuffleAndPlayAll = (Button) findViewById(R.id.shuffle_all);
+        shuffleAndPlayAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent searchIntent = new Intent(CategoryPopActivity.this, SearchActivity.class);
-                startActivity(searchIntent);
+                Intent shuffleAndPlayAllIntent = new Intent(CategoryPopActivity.this, PlayingActivity.class);
+                startActivity(shuffleAndPlayAllIntent);
             }
         });
 
-        favourites.setOnClickListener(new View.OnClickListener() {
+        ImageView buySong1 = (ImageView) findViewById(R.id.buy_song1);
+        buySong1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent favouritesIntent = new Intent(CategoryPopActivity.this, FavouritesActivity.class);
-                startActivity(favouritesIntent);
+                Intent buySong1Intent = new Intent(CategoryPopActivity.this, ShoppingActivity.class);
+                startActivity(buySong1Intent);
             }
         });
 
-        chat.setOnClickListener(new View.OnClickListener() {
+        final ImageView playSong1 = (ImageView) findViewById(R.id.play_song1);
+        playSong1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent chatIntent = new Intent(CategoryPopActivity.this, ChatActivity.class);
-                startActivity(chatIntent);
+                Intent playSong1Intent = new Intent(CategoryPopActivity.this, PlayingActivity.class);
+                startActivity(playSong1Intent);
             }
         });
 
-        shopping.setOnClickListener(new View.OnClickListener() {
+        ImageView buySong2 = (ImageView) findViewById(R.id.buy_song2);
+        buySong2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent shoppingIntent = new Intent(CategoryPopActivity.this, ShoppingActivity.class);
-                startActivity(shoppingIntent);
+                Intent buySong2Intent = new Intent(CategoryPopActivity.this, ShoppingActivity.class);
+                startActivity(buySong2Intent);
             }
         });
 
-        description.setOnClickListener(new View.OnClickListener() {
+        final ImageView playSong2 = (ImageView) findViewById(R.id.play_song2);
+        playSong2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(description.getContext(), R.string.text_description_mainA, Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                Intent playSong2Intent = new Intent(CategoryPopActivity.this, PlayingActivity.class);
+                startActivity(playSong2Intent);
             }
         });
+
+        ImageView buySong3 = (ImageView) findViewById(R.id.buy_song3);
+        buySong3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent buySong3Intent = new Intent(CategoryPopActivity.this, ShoppingActivity.class);
+                startActivity(buySong3Intent);
+            }
+        });
+
+        final ImageView playSong3 = (ImageView) findViewById(R.id.play_song3);
+        playSong3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent playSong3Intent = new Intent(CategoryPopActivity.this, PlayingActivity.class);
+                startActivity(playSong3Intent);
+            }
+        });
+    }
+
+    /**
+     * On selecting toolbar icons
+     * */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Take appropriate action for each action item click
+        switch (item.getItemId()) {
+            case R.id.home:
+                homeActivity();
+                return true;
+            case R.id.search:
+                searchActivity();
+                return true;
+            case R.id.favourites:
+                favouritesActivity();
+                return true;
+            case R.id.chat:
+                chatActivity();
+                return true;
+            case R.id.shopping:
+                shoppingActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /**
+     * Launching new activity from menu
+     * */
+    private void homeActivity() {
+        Intent i = new Intent(CategoryPopActivity.this, MainActivity.class);
+        startActivity(i);
+    }
+
+    private void searchActivity() {
+        Intent i = new Intent(CategoryPopActivity.this, SearchActivity.class);
+        startActivity(i);
+    }
+
+    private void favouritesActivity() {
+        Intent i = new Intent(CategoryPopActivity.this, FavouritesActivity.class);
+        startActivity(i);
+    }
+
+    private void chatActivity() {
+        Intent i = new Intent(CategoryPopActivity.this, ChatActivity.class);
+        startActivity(i);
+    }
+
+    private void shoppingActivity() {
+        Intent i = new Intent(CategoryPopActivity.this, ShoppingActivity.class);
+        startActivity(i);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 }
