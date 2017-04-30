@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         ImageView cPop = (ImageView) findViewById(R.id.category_pop);
-//        final TextView description = (TextView) findViewById(R.id.description);
-
 
         cPop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,13 +28,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(cPopIntent);
             }
         });
-
-//        description.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(description.getContext(), R.string.text_description_mainA, Toast.LENGTH_LONG).show();
-//            }
-//        });
 
     }
 

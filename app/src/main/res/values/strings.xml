@@ -22,19 +22,29 @@
 
     <string name="listenAndGo">Listen &amp; Go</string>
 
-    <string name="description_main">The user can choose from the upper menu, or from the categories. Categories would open a new screen with list of songs that belong to that category.\n\n
-        POP category is clickable.</string>
-    <string name="description_search">On search page user can search for authors, albums or song titles. To implement the search option directly at the toolbar, I have to add the search widget, define the
-        searchable configuration in an xml file, and I have to connect to a database (ie. Yahoo Audio Search API), than display the results on this Search page in a ListView.</string>
-    <string name="description_favourites">When the user listens to the music on the now playing screen, they have the option to mark the song as their favourites. These songs will be displayed here.
-        The user can listen to a single song, or listen to all of them as a playlist. When there will be more than 0 favourite songs, the icon will become a filled heart.</string>
+    <string name="description_main">Data of music and the music itself arrives from online database such as Spotify API. The user can choose from the upper menu, or from the categories. Categories are
+        left-right slidable using ViewPager. Clicking on a category would open a new screen with list of songs (ArrayList) that belong to that category. There will be more categories such as Fresh,
+        Soundtracks and My Playlists\n\nMenu and POP category is clickable.</string>
+    <string name="description_search">On search page user can search for authors, albums or song titles. The opening screen can be empty asking the user to start searching, or can display discount offers.
+        To implement the search option directly at the toolbar, I have to add the search widget, define the searchable configuration in an xml file, and I have to connect to a database (ie. Yahoo Audio Search API),
+        than display the results on this Search page in a ListView.</string>
+    <string name="description_favourites">Favourites has two sections. First: when the user listens to the music on the playing screen, they have the option to mark the song as their favourites.
+        These songs will be displayed here. When there will be more than 0 favourite, the top menu icon will become a filled heart. Listing has to use ArrayList. If the list is empty, it will tell the user
+        to listen to some music, and add them to favourites if they want to. Second section is Playlists that were made by the user. These playlists are automatically displayed here. Two buttons will be
+        displayed for every item (song or playlist): first which can remove the item from favourites, and the play button, which opens the Playing activity and plays the item. </string>
     <string name="description_chat">Chat screen includes a social media interface, with the main purpose to share the users thoughts about songs, authors, albums. It has to be connected to
-        a server, and has to be able to handle logins and users personal infos.</string>
+        a server, and has to be able to handle logins and users personal infos. The user can add friends based on their phone number, such as Viber makes. The screen will ask the user to add friends if
+        there is nobody added yet. The app has to ask permissin from the user to have access to their phone contacts. After adding friends the Chat screen will display the latest comments what the users friend
+        has made. The user can write replies or like the comments.</string>
     <string name="description_shopping">The user can buy the songs online if they want to. They can search the database, and if they click on the Buy button, they can purchase the songs
         through for example 7Digital API.</string>
-    <string name="description_category">Category is a list which comes from database. It can use ie. Spotify API. It includes ListView to list the song data, and also includes buttons
-        to play or to buy songs.\n\nBuy button opens the Buy screen, Play button opens the now playing screen.</string>
-    <string name="description_nowPlaying">Music player can play the choosen song from the library of the API. If the user wants, they can buy it (opens the Buy screen), they can add
-        the song to the favourites (heart will be filled), or write a comment on the song which will be shared to the social media platform (input box has to appear above the activity,
-        with the possibility to write comment, add emoticons. Link to the song has to be added automatically to this input box). The Progress Bar Widget has to be also implemented.</string>
+    <string name="description_category">Category is a list which comes from database. It can use ie. Spotify API. It includes ArrayList to list the song data (song title, author, album), and also includes
+        buttons to play or to buy songs.\n\nBuy button opens the Buy screen, Play button opens the playing screen.</string>
+    <string name="description_playing">Music player can play the choosen song from the library of ie. the Spotify API. It has to use the MediaPlayer class to play audio and the MediaController class to control
+        playback. It will also use a Service instance to play audio when the user is not directly interacting with the app. If the user wants, they can buy the song (clicking the basket opens the Shopping activity
+        with the details of the actual song), they can add the song to the favourites (heart icon will be filled both on the Playing activity screen, and if it was not filled before, in the top menu), or write a
+        comment on the song which will be shared to the social media platform (input box has to appear above the activity, with the possibility to write comment in EditText, and add emoticons). Link to the song has to
+        be added automatically to this input box. For sending the comment the ACTION_SEND Intent has to be used. The Progress Bar Widget has to be also implemented. An additional funcionality will be added to this
+        activity: if the user wants, they can give the actual song to an own playlist. The user can give a name to the playlist, which can be listed later, when they want to choose/make a playlist (they can choose
+        from spinner items). The users own playlists will be displayed in Favourites automatically.</string>
 </resources>

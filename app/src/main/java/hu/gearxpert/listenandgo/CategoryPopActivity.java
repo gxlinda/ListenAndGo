@@ -20,6 +20,9 @@ public class CategoryPopActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
+        /**
+         * Handles the buttons added to each song
+         */
         Button playAll = (Button) findViewById(R.id.play_all);
         playAll.setOnClickListener(new View.OnClickListener() {
             @Override
